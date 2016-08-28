@@ -1,0 +1,5 @@
+<%# add navigation links to this file %>
+<% if user_signed_in? %>
+  <li><%= link_to 'Teams', teams_path %></li>
+  <li><%= link_to 'Monsters', monsters_path %></li>
+<% end %>

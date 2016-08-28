@@ -1,0 +1,37 @@
+<%= simple_form_for(@monster) do |f| %>
+  <%#= f.error_notification %>
+  <% if @monster.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@monster.errors.count, "error") %> prohibited this monster from being saved:</h2>
+
+      <ul>
+        <% @monster.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group col-md-8">
+    <%= f.text_field :name, placeholder: 'Name', class: 'form-control', required: true %>
+  </div><br />
+
+  <div class="form-group col-md-8">
+    <%= f.text_field :power, placeholder: 'Power', class: 'form-control' %>
+  </div><br />
+
+  <div class="form-group col-md-8">
+    <%= f.input :monster_type, as: :select, collection: Monster::MONSTER_CATEGORIES, prompt: "Choose type", class: 'form-control', required: true %>
+  </div><br />
+
+  <div class="form-group col-md-8">
+    <%= f.select(:team_id, teams_for_select,  class: 'form-control', required: true)%> or
+    <%= link_to 'Create New Team', :new_team , class: 'btn btn-sm btn-success' %>
+  </div><br />
+
+  <div class="form-group col-md-8">
+    <%= f.submit class: 'btn btn-sm btn-primary'%>
+    <%= link_to 'Back', monsters_path, class: 'btn btn-sm btn-default' %>
+  </div>
+
+<% end %>

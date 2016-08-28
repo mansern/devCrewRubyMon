@@ -1,0 +1,12 @@
+<div class="jumbotron">
+  <h1>DevCrew Rubymon app</h1>
+  <p>
+    <% if current_user %>
+        <h3>Welcome Dashboard!!!</h3>
+    <% else %>
+        <a class="btn btn-primary btn-large" href="/users/auth/facebook">
+          Login in with Facebook
+        </a>
+  <% end %>
+  </p>
+</div>

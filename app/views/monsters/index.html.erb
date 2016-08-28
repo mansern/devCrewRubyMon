@@ -1,0 +1,31 @@
+<h1>List of Monsters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Power</th>
+      <th>Type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% unless @monsters.blank? %>
+      <% @monsters.each do |monster| %>
+        <tr>
+          <td><%= monster.name %></td>
+          <td><%= monster.power %></td>
+          <td><%= monster.monster_type %></td>
+          <td><%= link_to 'Show', monster %></td>
+          <td><%= link_to 'Edit', edit_monster_path(monster) %></td>
+          <td><%= link_to 'Destroy', monster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Monster', new_monster_path %>

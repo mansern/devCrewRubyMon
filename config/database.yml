@@ -1,0 +1,21 @@
+# Configure Using Gemfile
+# gem 'pg'
+#
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: db_user
+  password: dbuser
+#  pool: 5
+
+development:
+  <<: *default
+  database: devcrew_rubymon_development
+
+test:
+  <<: *default
+  database: devcrew_rubymon_test
+
+production:
+  <<: *default
+  database: devcrew_rubymon_production
